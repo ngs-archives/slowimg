@@ -6,3 +6,9 @@ get '/' do
   IO.read 'test.jpg'
 end
 
+get '/js' do
+  content_type 'text/javascript'
+  sleep params[:s].to_i if params[:s]
+  "document.write(new Date().getTime()+'<br>')"
+end
+
